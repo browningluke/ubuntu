@@ -9,14 +9,14 @@ ARG TARGETARCH
 # # Azure CLI 
 # RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# AWS CLI
+# # AWS CLI
 
-RUN /bin/zsh -c "([[ $TARGETARCH == 'arm64' ]] \
-        && curl 'https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip' -o 'awscliv2.zip' \
-        || curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'  -o 'awscliv2.zip') \
-    && unzip awscliv2.zip \
-    && sudo ./aws/install \
-    && rm 'awscliv2.zip'"
+# RUN /bin/zsh -c "([[ $TARGETARCH == 'arm64' ]] \
+#         && curl 'https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip' -o 'awscliv2.zip' \
+#         || curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'  -o 'awscliv2.zip') \
+#     && unzip awscliv2.zip \
+#     && sudo ./aws/install \
+#     && rm 'awscliv2.zip'"
 
 
 # # Kubectl
@@ -29,7 +29,7 @@ RUN /bin/zsh -c "([[ $TARGETARCH == 'arm64' ]] \
 
 # Terraform
 RUN wget "https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_$TARGETARCH.zip" \
-    && unzip terraform_1.0.7_linux_amd64.zip \
+    && unzip "terraform_1.2.3_linux_$TARGETARCH.zip" \
     && sudo install terraform /usr/local/bin/
 
 # Pulumi
