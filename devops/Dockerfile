@@ -27,13 +27,13 @@ ARG TARGETARCH
 #     && sudo apt-get install -y kubectl
 
 
-# Terraform
-RUN wget "https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_$TARGETARCH.zip" \
-    && unzip "terraform_1.2.3_linux_$TARGETARCH.zip" \
-    && sudo install terraform /usr/local/bin/
+# # Terraform
+# RUN wget "https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_$TARGETARCH.zip" \
+#     && unzip "terraform_1.2.3_linux_$TARGETARCH.zip" \
+#     && sudo install terraform /usr/local/bin/
 
-# Pulumi
-RUN curl -fsSL https://get.pulumi.com | sh
+# # Pulumi
+# RUN curl -fsSL https://get.pulumi.com | sh
 
 ### ---------------
 ### Initialization
@@ -41,4 +41,4 @@ RUN curl -fsSL https://get.pulumi.com | sh
 
 # Handle config files
 COPY .zshrc.append /home/luke/.zshrc.append
-RUN cat /home/luke/.zshrc.append >> /home/luke/.zshrc && rm /home/luke/.zshrc.append
+RUN sudo su -c "cat /home/luke/.zshrc.append >> /home/luke/.zshrc" && sudo rm /home/luke/.zshrc.append
