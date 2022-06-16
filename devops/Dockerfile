@@ -28,10 +28,9 @@ RUN /bin/zsh -c "([[ $TARGETARCH == 'arm64' ]] \
 
 
 # Terraform
-RUN sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl \
-    && curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
-    && sudo apt-add-repository "deb [arch=$TARGETARCH] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
-    && sudo apt-get update && sudo apt-get install terraform
+RUN wget "https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_$TARGETARCH.zip" \
+    && unzip terraform_1.0.7_linux_amd64.zip \
+    && sudo install terraform /usr/local/bin/
 
 # Pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
