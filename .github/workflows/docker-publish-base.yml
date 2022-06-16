@@ -1,10 +1,11 @@
-name: Docker
+name: Docker-Base
 
 on:
   push:
     branches: [ "main" ]
     paths-ignore:
       - "devops/**"
+      - ".github/workflows/docker-publish-devops.yml"
     # # Publish semver tags as releases.
     # tags: [ 'v*.*.*' ]
 
