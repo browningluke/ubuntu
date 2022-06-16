@@ -2,13 +2,13 @@ name: Docker
 
 on:
   push:
-    #branches: [ "main" ]
+    branches: [ "main" ]
     paths:
       - "devops/**"
       - ".github/workflows/docker-publish-devops.yml"
     # # Publish semver tags as releases.
     # tags: [ 'v*.*.*' ]
-
+  
 env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
