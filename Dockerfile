@@ -2,20 +2,26 @@ FROM ubuntu:focal
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
-# Install packages
-RUN apt update && apt install -y zsh
+### ---------------
+### Package install
+### ---------------
+RUN apt update
 
-RUN apt install -y neofetch git curl wget dnsutils sudo python3
+## Misc
+RUN apt install -y sudo zsh neofetch unzip
 
-RUN apt install -y vim
+## Development
+RUN apt install -y vim git
 
-# Azure CLI 
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+## Networking
+RUN apt install -y curl wget dnsutils
 
-#RUN apt install -y 
+## Languages
+RUN apt install -y golang-go python3
 
-# />
-
+### ---------------
+### Initialization
+### ---------------
 
 # Set timezone
 ARG TIMEZONE=America/Vancouver
