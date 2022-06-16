@@ -5,6 +5,7 @@ on:
     #branches: [ "main" ]
     paths:
       - "devops/**"
+      - ".github/workflows/docker-publish-devops.yml"
     # # Publish semver tags as releases.
     # tags: [ 'v*.*.*' ]
 
