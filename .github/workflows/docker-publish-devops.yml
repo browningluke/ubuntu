@@ -2,8 +2,8 @@ name: Docker
 
 on:
   push:
-    branches: [ "main" ]
-    paths-ignore:
+    #branches: [ "main" ]
+    paths:
       - "devops/**"
     # # Publish semver tags as releases.
     # tags: [ 'v*.*.*' ]
@@ -57,7 +57,7 @@ jobs:
             docker.io/${{ env.IMAGE_NAME }}
             ghcr.io/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=base
+            type=raw,value=devops
           flavor: |
             latest=false
 
@@ -67,7 +67,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
-          context: .
+          context: devops
           platforms: linux/amd64,linux/arm64/v8
           push: true
           tags: ${{ steps.meta.outputs.tags }}
