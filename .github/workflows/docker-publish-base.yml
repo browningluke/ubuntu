@@ -3,8 +3,8 @@ name: Docker
 on:
   push:
     branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    # # Publish semver tags as releases.
+    # tags: [ 'v*.*.*' ]
 
 env:
   # github.repository as <account>/<repo>
@@ -54,8 +54,10 @@ jobs:
           images: |
             docker.io/${{ env.IMAGE_NAME }}
             ghcr.io/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=base
           flavor: |
-            latest=true
+            latest=false
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
