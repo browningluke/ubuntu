@@ -4,12 +4,12 @@ FROM browningluke/ubuntu:base
 ### Package install
 ### ---------------
 
+ARG TARGETARCH
+
 # Azure CLI 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # AWS CLI
-
-RUN 
 
 RUN ([[ $TARGETARCH == "arm64" ]] \
         && curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" \
