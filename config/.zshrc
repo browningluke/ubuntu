@@ -21,4 +21,6 @@ PROMPT="[%2~] c %# "
 RPROMPT="%n %t"
 ZSH_THEME=”random”
 
+PATH="~/.local/bin:$PATH"
+
 neofetch

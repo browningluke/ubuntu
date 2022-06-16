@@ -17,7 +17,7 @@ RUN apt install -y vim git
 RUN apt install -y curl wget dnsutils
 
 ## Languages
-RUN apt install -y golang-go python3
+RUN apt install -y golang-go python3 pip
 
 ### ---------------
 ### Initialization
@@ -43,5 +43,5 @@ RUN touch $HISTFILE && ln -s $HISTFILE /home/luke/.histfile
 
 USER luke
 WORKDIR /home/luke
-COPY config/* .
+COPY --chown=luke config/* .
 ENTRYPOINT [ "/bin/zsh" ]
