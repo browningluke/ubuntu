@@ -1,0 +1,2 @@
+# DevOps specfic config
+PATH=~/.pulumi/bin:$PATH
